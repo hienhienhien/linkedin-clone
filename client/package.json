@@ -7,10 +7,12 @@
     "react-dom": "^15.5.4"
   },
   "devDependencies": {
+    "concurrently": "^3.4.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "both": "concurrently \"react-scripts start\" \"json-server --watch db.json --port 3001\"",
+    "start": "react-scripts start && json-server --watch db.json --port 3001",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
