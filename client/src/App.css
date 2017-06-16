@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -21,4 +21,21 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}*/
+
+.logo {
+  width: 40px;
+  margin-top: -7px;
+  margin-left: 7px;
+  height: 40px;
+  position: relative;
+}
+
+.navbar {
+  background-color:#283E4A;
+  
+}
+.navbar-right {
+  
+
 }
