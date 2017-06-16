@@ -54,7 +54,7 @@ class Feed extends Component {
                                             <i className="fa fa-google-plus-square"></i>
                                         </span>
                                     </li>
-                                     <button onClick={() => {this.props.removeFeed(this.id) }}>Remove</button>
+                                     <button onClick={() => {this.props.removeFeed(this.props.feed.id) }}>Remove</button>
                                 </ul>
                             </div>
                         </div>

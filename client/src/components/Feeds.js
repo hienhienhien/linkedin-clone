@@ -14,7 +14,7 @@ class Feeds extends Component {
     render() {
         
         const feedlist = this.props.feeds.map((feed) => {
-            return (<Feed feed={feed} key={feed.id} removeFeed={this.props.removeFeed} />)
+            return (<Feed feed={feed} key={feed.id} removeFeed={this.props.remove} />)
         })
         return (
             <div>

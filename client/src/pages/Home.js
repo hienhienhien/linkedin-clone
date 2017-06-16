@@ -12,33 +12,33 @@ class Home extends Component {
     super(props);
     this.state = {
       feeds: [
-        {
-      "id": 1,
-      "title": "a",
-      "author": "typicode",
-      "content":"aa"
-    },
-    {
-      "id": 2,
-      "title": "b",
-      "author": "typicode",
-      "content":"bb"
-    },
-    {
-      "id": 3,
-      "title": "c",
-      "author": "typicode",
-      "content":"cc"
-    },
-    {
-      "id": 4,
-      "title": "d",
-      "author": "typicode",
-      "content":"dd"
-    }
+    //     {
+    //   "id": 1,
+    //   "title": "a",
+    //   "author": "typicode",
+    //   "content":"aa"
+    // },
+    // {
+    //   "id": 2,
+    //   "title": "b",
+    //   "author": "typicode",
+    //   "content":"bb"
+    // },
+    // {
+    //   "id": 3,
+    //   "title": "c",
+    //   "author": "typicode",
+    //   "content":"cc"
+    // },
+    // {
+    //   "id": 4,
+    //   "title": "d",
+    //   "author": "typicode",
+    //   "content":"dd"
+    // }
       ]
     }
-    this.apiUrl = 'localhost:3001/feeds'
+    this.apiUrl = 'http://localhost:3001/feeds'
   }
 
   componentDidMount() {
@@ -47,61 +47,42 @@ class Home extends Component {
       .get(this.apiUrl)
       .then((res) => {
         console.log(this.state.feeds);
-        // Set state with result
-        this.setState({feeds: res});
+        
+        this.setState({feeds: res.data});
       });
-      console.log(this.state.feeds);
+      
   }
 
-  //add new feed
-  // addFeed(feed){
-  //   //feed = object
-  //   axios.post(this.apiUrl,feed)
-  //   .then((res) => {
-  //     this.state.feeds.push(res.data);
-  //     this.setState({
-  //       feeds:this.state.feeds
-  //     });
-  //   })
-  // }
-
-  // remove(id){
-  //   const newFeeds = this.state.feeds.filter((feed) =>{
-  //     if(feed.id !== id) {
-  //       return feed;
-  //     }
-  //   });
-  //   axios.delete(this.apiUrl+'/'+id)
-  //   .then((res) => {
-  //     this.setState({
-  //       feeds:newFeeds
-  //     })
-  //   })
-
-  // }
-
-
+//   add new feed
   addFeed(feed){
-    this.state.feeds.push(feed);
-    this.setState({
-      feeds:this.state.feeds
+    //feed = object
+    axios.post(this.apiUrl,feed)
+    .then((res) => {
+      this.state.feeds.push(res.data);
+      this.setState({
+        feeds:this.state.feeds
+      });
     })
   }
 
   removeFeed(id){
-    const newFeeds = this.state.feeds.filter((feed) => {
-      if(feed.is !== id){
+    const newFeeds = this.state.feeds.filter((feed) =>{
+      if(feed.id !== id) {
         return feed;
       }
     });
-    this.setState({
-      feeds:newFeeds
-    });
+    axios.delete(this.apiUrl+'/'+id)
+    .then((res) => {
+      this.setState({
+        feeds:newFeeds
+      })
+    })
+
   }
 
-  editFeed(id,feed){
 
-  }
+
+  
 
   render() {
     return (
@@ -112,7 +93,7 @@ class Home extends Component {
         <AddFeed addFeed={this.addFeed.bind(this)} />
         <Feeds 
         feeds={this.state.feeds} 
-        removeFeed={this.removeFeed.bind(this)}
+        remove={this.removeFeed.bind(this)}
         />
 
       </div>

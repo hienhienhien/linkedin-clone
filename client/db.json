@@ -1,28 +1,22 @@
 {
   "feeds": [
     {
-      "id": 1,
-      "title": "a",
-      "author": "typicode",
-      "content":"aa"
-    },
-    {
       "id": 2,
       "title": "json-server",
       "author": "typicode",
-      "content":"bb"
+      "content": "bb"
     },
     {
       "id": 3,
       "title": "json-server",
       "author": "typicode",
-      "content":"cc"
+      "content": "cc"
     },
     {
       "id": 4,
       "title": "json-server",
       "author": "typicode",
-      "content":"dd"
+      "content": "dd"
     }
   ],
   "comments": [
